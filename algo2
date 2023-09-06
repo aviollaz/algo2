@@ -1,0 +1,22 @@
+max := escrutinio[0]
+
+while (i <= length(escrutinio)) do
+    if (max <= escrutinio[i])
+        max := escrutinio[i];
+    else
+        skip;
+    endif
+    i := i + 1
+    
+endwhile
+
+sum := 0
+while (i <= length(escrutinio)) do
+    sum :=  sum + escrutinio[i];
+
+
+    i := i + 1
+
+endwhile
+
+if (max)

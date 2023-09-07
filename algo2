@@ -1,3 +1,4 @@
+res := True
 max := escrutinio[0]
 
 while (i <= length(escrutinio)) do
@@ -19,4 +20,12 @@ while (i <= length(escrutinio)) do
 
 endwhile
 
-if (max)
+max1Porcentaje := (escrutinio[max1]*100)/sum) 
+max2Porcentaje := (escrutinio[max2]*100)/sum) 
+
+if (max1Porcentaje > 45)
+    res := False;
+
+endif
+
+if ((max1Porcentaje > 40) & & (max1Porcentaje - max2Porcentaje > 10) 

@@ -1,0 +1,51 @@
+package aed;
+
+class VectorDeInts implements SecuenciaDeInts {
+    private static final int CAPACIDAD_INICIAL = 1;
+    private int[] seq;
+    private int size;
+        
+    public VectorDeInts() {
+        seq = new int[0];
+        size = 0;
+    }
+
+    public VectorDeInts(VectorDeInts vector) {
+        throw new UnsupportedOperationException("No implementada aun");
+    }
+
+    public int longitud() {
+        return seq.length;
+        
+    }
+
+    public void agregarAtras(int i) {
+        int[] newSeq = new int[seq.length + 1];
+
+        for(int i = 0; i < newSeq.length + 1; i++){
+            
+        }
+    }
+
+    public int obtener(int i) {
+        throw new UnsupportedOperationException("No implementada aun");
+    }
+
+    public void quitarAtras() {
+        int[] newSeq = new int[seq.length -1];
+        
+        for(int i = 0;i < newSeq.length; i++){
+            newSeq[i] = seq[i];
+        }
+        seq = new_seq
+    }
+
+    public void modificarPosicion(int indice, int valor) {
+        throw new UnsupportedOperationException("No implementada aun");
+    }
+
+    public VectorDeInts copiar() {
+        throw new UnsupportedOperationException("No implementada aun");
+    }
+
+}

@@ -3,11 +3,11 @@ package aed;
 class VectorDeInts implements SecuenciaDeInts {
     private static final int CAPACIDAD_INICIAL = 1;
     private int[] seq;
-    private int size;
+
         
     public VectorDeInts() {
         seq = new int[0];
-        size = 0;
+
     }
 
     public VectorDeInts(VectorDeInts vector) {
@@ -21,14 +21,15 @@ class VectorDeInts implements SecuenciaDeInts {
 
     public void agregarAtras(int i) {
         int[] newSeq = new int[seq.length + 1];
-
-        for(int i = 0; i < newSeq.length + 1; i++){
-            
+        for(int k = 0; k < seq.length; k++){
+            newSeq[k] = seq[k];
         }
+        newSeq[newSeq.length - 1] = i;
+        seq = newSeq;
     }
 
     public int obtener(int i) {
-        throw new UnsupportedOperationException("No implementada aun");
+        return seq[i];
     }
 
     public void quitarAtras() {
@@ -37,7 +38,7 @@ class VectorDeInts implements SecuenciaDeInts {
         for(int i = 0;i < newSeq.length; i++){
             newSeq[i] = seq[i];
         }
-        seq = new_seq
+        seq = newSeq;
     }
 
     public void modificarPosicion(int indice, int valor) {

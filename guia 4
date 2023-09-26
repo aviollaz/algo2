@@ -1,0 +1,45 @@
+TAD Cache<T> {
+    obs data: dict{float, T}
+    obs maxT: float 
+
+    proc crearCache(in d: dict{float, T}, in m: float) Cache<T> {
+        requiere{ m >= 0 }
+
+        asegura{ res.data = d && res.maxT = m }
+    }
+
+    proc agregar(inout c: Cache<t>, in d: T, in t: float) {
+        requiere{ True }
+
+            asegura{ c.data[t] = data} 
+        asegura{forall i :: (i != t && t in c(old).data) --> (c(old).data[i] = c.data[i])} 
+    }
+    
+    proc actualizar(inout c: Cache<t>, in maxT: float) {
+        requiere{ True }
+
+        asegura{ forall i :: ((i in c(old).data) && (c.now() - i < maxT)) -->L c.data[i] == c(old).data[i]
+        asegura{ c.data.length == c(old).data.length - ()} 
+
+        aux longitud{ sumatoria(i = 0)(c(old).data)(c(old).data[i])  }
+    }
+    }
+}
+
+TAD Cache<T> {
+    obs data: dict{float, T}
+    obs maxC: int
+
+    proc crearCache(in d: dict{float, T}, in m: int) Cache<T> {
+        requiere { m >= 0}
+
+        asegura { res.data = d && res.maxC = m}
+    }
+
+    proc actualizar(inout c: Cache<T>, in maxC: int){
+        requiere{ True }
+
+        asegura{c.data.length > maxC --> }
+    }
+    
+}

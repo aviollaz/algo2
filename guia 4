@@ -1,3 +1,4 @@
+# 3) A -----------------------------------------------
 TAD Cache<T> {
     obs data: dict{float, T}
     obs maxT: float 
@@ -42,4 +43,18 @@ TAD Cache<T> {
         asegura{c.data.length > maxC --> }
     }
     
+}
+
+# 4 A) --------------------------
+
+TAD Pila<T> {
+	obs elems: dict(int, T)
+
+	proc crearPila(in elems: dict(int, T)) Pila<T> {
+		requiere{ True }
+
+		asegura{ res.elems = elems}
+	}
+
+	proc agregar(inout p: pila<T>, in e: T)
 }

@@ -1,0 +1,146 @@
+package aed;
+
+import java.util.*;
+
+public class ListaEnlazada<T> implements Secuencia<T> {
+    // Completar atributos privados
+    private Nodo first;
+    private Nodo last;
+    private int size;
+    
+
+    private class Nodo {
+        private T value;
+        private Nodo next;
+        private Nodo prev;
+
+        public Nodo(T elem){
+            this.value = elem;
+            this.next = null;
+            this.prev = null;
+        }
+    }
+
+    public ListaEnlazada() {
+        size = 0;
+    }
+
+    public int longitud() {
+        return size;
+    }
+
+    public void agregarAdelante(T elem) {
+        Nodo newNode = new Nodo(elem);
+
+        if(size == 0){
+            first = newNode;
+            last = newNode;
+        } else {
+            newNode.next = first;
+            first = newNode;
+        }
+
+        size++;
+    }
+
+    public void agregarAtras(T elem) {
+        Nodo newNode = new Nodo(elem);
+
+        if(size == 0){
+            first = newNode;
+            last = newNode;
+        } else {
+            last.next = newNode;
+            last = newNode;
+        }
+        
+        size++;
+    }
+
+    public T obtener(int i) {
+        T res = null;
+        Nodo current = first;
+ 
+
+        for(int j = 0; j < size; j++){
+            if(i != j){
+                current = current.next;
+            } else {
+                res = current.value;
+            }
+        }
+        return res;
+    }
+
+
+
+    public void eliminar(int i) {
+        Nodo current = first;
+
+        if(i == 0){
+            first = first.next;
+            first.prev = null;
+
+        } else if(i == size-1){
+            last = last.prev;
+            last.next = null;
+        } else {
+            for(int j = 0; j < i; j++){
+                current = current.next;
+                if(j == i-1){
+                    current.next = current.next.next;
+                }
+        }
+
+        }
+        
+
+
+        size--;
+    }
+
+
+
+    public void modificarPosicion(int indice, T elem) {
+        throw new UnsupportedOperationException("No implementada aun");
+    }
+
+    public ListaEnlazada<T> copiar() {
+        throw new UnsupportedOperationException("No implementada aun");
+    }
+
+    public ListaEnlazada(ListaEnlazada<T> lista) {
+        throw new UnsupportedOperationException("No implementada aun");
+    }
+    
+    @Override
+    public String toString() {
+        throw new UnsupportedOperationException("No implementada aun");
+    }
+
+    private class ListaIterador implements Iterador<T> {
+    	// Completar atributos privados
+
+        public boolean haySiguiente() {
+	        throw new UnsupportedOperationException("No implementada aun");
+        }
+        
+        public boolean hayAnterior() {
+	        throw new UnsupportedOperationException("No implementada aun");
+        }
+
+        public T siguiente() {
+	        throw new UnsupportedOperationException("No implementada aun");
+        }
+        
+
+        public T anterior() {
+	        throw new UnsupportedOperationException("No implementada aun");
+        }
+    }
+
+    public Iterador<T> iterador() {
+	    throw new UnsupportedOperationException("No implementada aun");
+    }
+
+}
